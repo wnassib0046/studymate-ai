@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat - StudyMate AI{% endblock %}
+{% block body_class %}chat-body{% endblock %}
+
+{% block content %}
+<main class="chat-shell">
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="brand-mark">S</div>
+            <div>
+                <h2>StudyMate AI</h2>
+                <p>Welcome, {{ username }}</p>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <h3>Main Topics</h3>
+            <ul class="topic-list">
+                <li>HTML structure</li>
+                <li>CSS styling</li>
+                <li>Flask routes</li>
+                <li>Python basics</li>
+                <li>Frontend vs backend</li>
+                <li>Project ideas</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-card">
+            <h3>Quick Actions</h3>
+            <a href="{{ url_for('clear_chat') }}" class="btn btn-secondary btn-full">New Chat</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-full">Logout</a>
+        </div>
+    </aside>
+
+    <section class="chat-panel">
+        <header class="chat-header">
+            <div>
+                <div class="top-badge">Improved Study Assistant</div>
+                <h1>Ask better questions and get better answers.</h1>
+                <p>StudyMate now supports more topics and keeps a small chat history during your session.</p>
+            </div>
+        </header>
+
+        <div class="prompt-strip">
+            {% for prompt in suggested_prompts %}
+                <form method="POST">
+                    <button type="submit" name="message" value="{{ prompt }}" class="prompt-chip">{{ prompt }}</button>
+                </form>
+            {% endfor %}
+        </div>
+
+        <div class="chat-box">
+            {% if chat_history %}
+                {% for item in chat_history %}
+                    <div class="message {% if item.sender == 'user' %}user-message{% else %}bot-message{% endif %}">
+                        <p class="message-name">{% if item.sender == 'user' %}You{% else %}StudyMate{% endif %}</p>
+                        <p>{{ item.text }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="message bot-message">
+                    <p class="message-name">StudyMate</p>
+                    <p>Hello! Ask me about HTML, CSS, Flask, Python, frontend, backend, databases, or project ideas.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <form method="POST" class="chat-form">
+            <input type="text" name="message" placeholder="Type your message here..." required>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </section>
+</main>
+{% endblock %}

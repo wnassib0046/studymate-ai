@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}StudyMate AI{% endblock %}
+{% block body_class %}landing-body{% endblock %}
+
+{% block content %}
+<main class="landing-shell">
+    <section class="hero-panel">
+        <div class="top-badge">Modern Student Assistant</div>
+        <h1>Study smarter with a clean chatbot built for web basics.</h1>
+        <p class="hero-copy">
+            StudyMate helps students revise HTML, CSS, Flask, Python, frontend, backend, and beginner project ideas using simple logic.
+        </p>
+
+        <div class="hero-actions">
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+            <a href="{{ url_for('login') }}" class="btn btn-secondary">Login</a>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-card">
+                <strong>10+</strong>
+                <span>study topics</span>
+            </div>
+            <div class="stat-card">
+                <strong>Simple</strong>
+                <span>rule-based replies</span>
+            </div>
+            <div class="stat-card">
+                <strong>Fast</strong>
+                <span>student revision tool</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview-panel">
+        <div class="preview-window">
+            <div class="window-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="preview-message bot-preview">
+                <p class="message-name">StudyMate</p>
+                <p>Hello! Ask me about HTML, CSS, Flask, Python, frontend, backend, or project ideas.</p>
+            </div>
+
+            <div class="preview-message user-preview">
+                <p class="message-name">Student</p>
+                <p>What is the difference between HTML and CSS?</p>
+            </div>
+
+            <div class="preview-message bot-preview">
+                <p class="message-name">StudyMate</p>
+                <p>HTML gives the structure of the page, while CSS controls the design and layout.</p>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h2>Better Design</h2>
+                <p>Modern layout, polished colors, and responsive sections for desktop and mobile.</p>
+            </article>
+            <article class="feature-card">
+                <h2>Smarter Replies</h2>
+                <p>More questions, more categories, and clearer answers while staying rule-based.</p>
+            </article>
+            <article class="feature-card">
+                <h2>Easy to Explain</h2>
+                <p>Built with Flask routes, templates, sessions, and CSS in a clear project structure.</p>
+            </article>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - StudyMate AI{% endblock %}
+{% block body_class %}auth-body{% endblock %}
+
+{% block content %}
+<main class="auth-shell">
+    <section class="auth-intro">
+        <div class="top-badge">Create Account</div>
+        <h1>Join StudyMate and start asking better questions.</h1>
+        <p>
+            Create your account to use the upgraded chatbot and explore more study topics.
+        </p>
+        <a href="{{ url_for('home') }}" class="text-link">Back to home</a>
+    </section>
+
+    <section class="form-card">
+        <h2>Register</h2>
+        <p class="form-subtitle">Create an account to open your chat workspace.</p>
+
+        <form method="POST" class="main-form">
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" placeholder="Choose a username" required>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="Create a password" required>
+
+            <button type="submit" class="btn btn-primary btn-full">Register</button>
+        </form>
+
+        <p class="form-link">Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+    </section>
+</main>
+{% endblock %}

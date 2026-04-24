@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - StudyMate AI{% endblock %}
+{% block body_class %}auth-body{% endblock %}
+
+{% block content %}
+<main class="auth-shell">
+    <section class="auth-intro">
+        <div class="top-badge">Welcome Back</div>
+        <h1>Log in and continue learning.</h1>
+        <p>
+            Enter your account and start chatting with your improved study assistant.
+        </p>
+        <a href="{{ url_for('home') }}" class="text-link">Back to home</a>
+    </section>
+
+    <section class="form-card">
+        <h2>Login</h2>
+        <p class="form-subtitle">Access your account to open the chat page.</p>
+
+        <form method="POST" class="main-form">
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit" class="btn btn-primary btn-full">Login</button>
+        </form>
+
+        <p class="form-link">Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+    </section>
+</main>
+{% endblock %}
